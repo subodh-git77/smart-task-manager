@@ -15,23 +15,18 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
   'https://smart-task-manager-sk.vercel.app',
-  process.env.CLIENT_URL,
-].filter(Boolean);
+];
+
+if (process.env.CLIENT_URL) {
+  allowedOrigins.push(process.env.CLIENT_URL);
+}
 
 app.use(
   cors({
-    origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-
-      return callback(new Error('Not allowed by CORS'));
-    },
+    origin: allowedOrigins,
     credentials: true,
   })
 );
-
-app.options('*', cors());
 
 app.use(express.json());
 
