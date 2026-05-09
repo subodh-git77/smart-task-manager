@@ -132,7 +132,7 @@ smart-task-manager/
 ## ⚡Local setup
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/your-username/smart-task-manager.git
+git clone https://github.com/subodh-git77/smart-task-manager.git
 cd smart-task-manager
 ```
 
